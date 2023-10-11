@@ -2,7 +2,7 @@ import json
 import requests
 
 Rand = input("Would you like to have a random task or a custom task? Y or N \n")
-if Rand == 'Y' or Rand == 'Yes':
+if Rand == 'Y' or Rand == 'Yes' or Rand == 'yes' or Rand == 'y':
     API_URL = "http://www.boredapi.com/api/activity/"
     response = requests.get(API_URL)
     if response.status_code == 200:
@@ -12,8 +12,8 @@ if Rand == 'Y' or Rand == 'Yes':
         data = None
 
     
-elif Rand == 'N' or Rand == 'No':
-    custom = input("\nWhat would you like to search a thing to do by? \n1 = Activity Type \n2 = Participants \n3 = Price \n4 = Accessibility")
+elif Rand == 'N' or Rand == 'No' or Rand == 'no' or Rand == 'n':
+    custom = input("\nWhat would you like to search a thing to do by? \n1 = Activity Type \n2 = Participants \n3 = Price \n4 = Accessibility\n")
     match custom:
         case "1":
             Activity = input("\nWhat kind of activity would you like to see? \n1- Education\n2- Recreational \n3- Social \n4- DIY \n5- Charity \n6- Cooking \n7- Relaxation \n8- Music \n9- Busywork\n")
@@ -22,10 +22,10 @@ elif Rand == 'N' or Rand == 'No':
             Part = input("\nHow many people are there? \n")
             API_URL = f"http://www.boredapi.com/api/activity?participants={Part}"
         case "3":
-            Price = input("\nWhat is the price range you are looking for? 0.1-1 is the range")
+            Price = input("\nWhat is the price range you are looking for? 0.1-1 is the range\n")
             API_URL = f"http://www.boredapi.com/api/activity?price={Price}"
         case "4":
-            Access = input("\nHow accessible do you need the activity to be? 0.1-1 is the range")
+            Access = input("\nHow accessible do you need the activity to be? 0.1-1 is the range\n")
             API_URL = f"http://www.boredapi.com/api/activity?accessibility={Access}"
 
 
